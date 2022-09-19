@@ -18,9 +18,10 @@ int main(void){
 
 int inversionCounter(char str[]){
     int count = 0;
+    int strLength = strlen(str);
 
-    for(int i = 0; i < strlen(str)-1; i++){
-        for(int j = i+1; j < strlen(str); j++){
+    for(int i = 0; i < strLength-1; i++){
+        for(int j = i+1; j < strLength; j++){
             if(*(str+i) > *(str+j)){
                 count++; 
             }
@@ -29,3 +30,5 @@ int inversionCounter(char str[]){
 
     return count;
 }
+
+// scanf("%s%n", user_input, &length) 可以直接取得長度
