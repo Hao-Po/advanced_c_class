@@ -3,16 +3,23 @@
 #include <math.h>
 
 int main(int argc, char *argv[]){
-    char **ptr = argv+1;
-    int num = atoi(*ptr);
-    for(int index = 1; index < argc-1; index++){
-        printf("%s ", *((ptr)+index));
-        if((index) % (int)sqrt(num) == 0){
-            printf("\n");
-        }
+    int num = atoi(*(argv+1));
+    int sqrt_num = sqrt(num);
+
+    char **array = (char **)malloc(sizeof(void *) * sqrt_num);
+    // char *row_array = (char *)malloc(sizeof(char) * sqrt_num);
+    char row_array[3] = {1,2,3};
+    for(int index = 0; index < sqrt_num; index++){
+        *(array+index) = row_array;
     }
 
 
-    // printf("%d", num);
+    for(int index = 0; index < sqrt_num; index++){
+        printf("%d", **(array+index));
+    }
+
+
+    printf("%d\n", num);
+    printf("%d\n", sqrt_num);
     return 0;
 }
