@@ -28,28 +28,33 @@ int main(int argc, char *argv[]){
     int num = atoi(*(argv+1));
     int sqrt_num = sqrt(num);
 
-    int *array = (int *)malloc(sizeof(int) * num);
-    int **row_array = (int **)malloc(sizeof(int) * sqrt_num);
+    if(sqrt_num < 3 || (sqrt_num * sqrt_num) != num){
+        printf("Input 1+x2 numbers (The first number is total number, x>3).");
+        return 0;
+    }
+
+    int *array = (int *)malloc(sizeof(int) * num); // store all argv's character
+    int **rows_array = (int **)malloc(sizeof(int) * sqrt_num); // store all rows
 
     for(int index = 0; index < num; index++){
-        *(array+index) = atoi(*(argv+2+index)); // change all char to int
+        *(array + index) = atoi(*(argv + 2 + index)); // change all char to int
     }
 
     for(int index = 0; index < sqrt_num; index++){
-        *(row_array + index) = (array + index * sqrt_num); // pointer to pointer,  like 2d vector
+        *(rows_array + index) = (array + index * sqrt_num); // pointer to pointer,  like 2d vector
     }
 
-    print_all(row_array, sqrt_num);
+    print_all(rows_array, sqrt_num);
 
-    swap_row(&*(row_array + 0), &*(row_array + 2)); // change row
+    swap_row(rows_array + 0, rows_array + 2); // change row
 
-    print_all(row_array, sqrt_num);
+    print_all(rows_array, sqrt_num);
 
     for(int row = 0; row < sqrt_num; row++){
-        swap_col(&*(*(row_array + row) + 0), &*(*(row_array + row) + 2));
+        swap_col(*(rows_array + row) + 0, *(rows_array + row) + 2); // change col
     }
 
-    print_all(row_array, sqrt_num);
+    print_all(rows_array, sqrt_num);
 
     return 0;
 }
