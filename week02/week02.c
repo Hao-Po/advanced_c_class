@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
     int num = atoi(*(argv+1));
     int sqrt_num = sqrt(num);
 
-    if(sqrt_num < 3 || (sqrt_num * sqrt_num) != num){
+    if(sqrt_num < 4 || (sqrt_num * sqrt_num) != num){
         printf("Input 1+x2 numbers (The first number is total number, x>3).");
         return 0;
     }
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
     print_all(rows_array, sqrt_num);
 
     swap_row(rows_array + 0, rows_array + 2); // change row
-
+ 
     print_all(rows_array, sqrt_num);
 
     for(int row = 0; row < sqrt_num; row++){
