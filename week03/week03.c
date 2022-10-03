@@ -45,7 +45,7 @@ void merge(tNumList *list1, tNumList *list2){
     }
 
     while(list2_index < list2->counts){ // if list1 is empty now, put list2's nums directly
-        *(merge_list + merge_list_index) =*(list2->p_list + list2_index);
+        *(merge_list + merge_list_index) = *(list2->p_list + list2_index);
         list2_index++;
         merge_list_index++;
     }
