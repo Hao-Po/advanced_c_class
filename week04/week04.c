@@ -80,7 +80,7 @@ void sort_list(tNumStorHead *list, int input){
         
         while(1){                                   // looping
             if(node_ptr->next == NULL){             // if all numbers are not bigger than new number, 
-                node_ptr->next == new_number;       // the new number becomes the tail of list.
+                node_ptr->next = new_number;       // the new number becomes the tail of list.
                 list->tail->next = new_number;
                 list->tail = new_number; 
                 break;                
