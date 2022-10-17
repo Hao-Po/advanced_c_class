@@ -18,7 +18,6 @@ void get_input(tNumStorHead *list);
 void initial_list(tNumStorHead *list);
 void print_list(tNumStorHead *list);
 void delete_last(tNumStorHead *list);
-int can_print = 1;
 
 int main (void)
 {
@@ -56,16 +55,11 @@ void get_input(tNumStorHead *list){
         printf("Input a number (-1 to exit, -2 to delete last): ");
         scanf("%d", &input);
 
-        if(input != -1){
-            if (input == -2){
-                delete_last(list);
-            }
-            else{
-                sort_list(list, input);
-            }
-            if (can_print){
-                print_list(list);
-            }
+        if (input == -2){
+            delete_last(list);
+        }
+        else if (input != -1){
+            sort_list(list, input);
         }
     }
 }
@@ -73,7 +67,6 @@ void get_input(tNumStorHead *list){
 void sort_list(tNumStorHead *list, int input){
     tNumStorage *new_number = (tNumStorage *)malloc(sizeof(tNumStorage));
     tNumStorage *node_ptr;
-    can_print = 1;
 
     new_number->number = input;
     new_number->next = NULL;
@@ -109,12 +102,13 @@ void sort_list(tNumStorHead *list, int input){
         }       
     }
     list->counts++;
+    print_list(list);
 }
 
 void delete_last(tNumStorHead *list){
     if (list->counts == 0){                             // if list->counts = 0, do nothing.
         printf("    There is nothing to delete. \n\n");
-        can_print = 0;
+        return ;
     }
     else if (list->counts != 1){                        // if list->counts != 1, list->tail go to last 2 number
         list->tail = list->tail->prev;                  // then free the last number
@@ -128,4 +122,5 @@ void delete_last(tNumStorHead *list){
         list->head = NULL;
         list->counts--;
     }
+    print_list(list);
 }
