@@ -1,0 +1,22 @@
+line 55:
+    old: new_storage->next = list->head; 
+    new: new_storage->next = NULL; 
+    # 後面沒接東西應該要接NULL
+
+line 66:
+    old: if (input <= tmp_ptr->number)
+    new: if (input <= tmp_ptr->number && tmp_ptr == list->head)
+    # 這個if用來判斷頭而已，少了這個判斷會在中間 例如 1 1 3 3 4 的時候 剩下 3 3 4
+
+line 68:
+    new: tmp_ptr->prev = new_storage; 
+    # 新增一行，不然雙箭頭少一個方向
+
+line 74:
+    old: else if (input > tmp_ptr->number && tmp_ptr == list->tail)
+    new: else if (input >= tmp_ptr->number && tmp_ptr == list->tail)
+    # 缺少條件，如果input跟最後一個值一樣的時候會沒辦法插入
+
+line 106:
+    new: free(list->tail);
+    # 新增一條free，free掉不用的空間
