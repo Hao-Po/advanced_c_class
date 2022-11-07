@@ -103,6 +103,11 @@ void add_number(tNumStorHead *list){
     else{
         printf("  Specify a target location: ");
         scanf("%d", &location);
+        
+        if (location > list->counts || location < 1){
+            printf("  No such choice !\n");
+            return;
+        }
 
         node_ptr = list->head;
 
@@ -151,6 +156,11 @@ void del_number(tNumStorHead *list){
 
     printf("  Specify a target location: ");
     scanf("%d", &location);
+
+    if (location > list->counts || location < 1){
+        printf("  No such choice !\n");
+        return;
+    }
 
     if (list->counts == 1){    // only one node can delete.
         list->head = NULL;
