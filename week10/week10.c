@@ -9,8 +9,8 @@ int CheckRangeLoop(Int32 input, Int32 high, Int32 low);
 int CheckRangeNoLoop(Int32 input, Int32 high, Int32 low);
 
 int main(void){
-    int loop_result, no_loop_result, keep_try = 1;
-    while (keep_try == 1){
+    int loop_result, no_loop_result, keep_try = '1';
+    while (keep_try == '1'){
         printf("Please specify the input: ");
         scanf("%x", &input);
 
@@ -35,7 +35,7 @@ int main(void){
         printf("CheckRangeNoLoop result: %d", no_loop_result);
 
         printf("\n\nEnter 1 to keep trying the next round: ");
-        scanf("%d", &keep_try);
+        scanf("%s", &keep_try);
     }
 }
 
