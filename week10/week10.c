@@ -16,8 +16,17 @@ int main(void){
 
         printf("    Please specify the high: ");
         scanf("%d", &high);
+        if (high > 31 || high < 0){
+            printf("    High need to 0 <= high <= 31");
+            continue;
+        }
+
         printf("    Please specify the low: ");
         scanf("%d", &low);
+        if (low > 31 || low < 0){
+            printf("    Low need to 0 <= low <= 31");
+            continue;
+        }
 
         loop_result = CheckRangeLoop(input, high, low);
         no_loop_result = CheckRangeNoLoop(input, high, low);
@@ -43,6 +52,6 @@ int CheckRangeLoop(Int32 input, Int32 high, Int32 low){
 }
 
 int CheckRangeNoLoop(Int32 input, Int32 high, Int32 low){
-    return (((0xffffffff << low) & (0xffffffff >> (31 - high)) & input) > 0) ? 1 : 0;  // remove the bit which is big than high/small than low, give 0
-}                                                                                      // do "AND" with 0xffffffff, when the value > 0, it means there
-                                                                                       // is 1 inside.
+    return (((0xffffffff << low) & (0xffffffff >> (31 - high)) & input) > 0) ? 1 : 0;  // two 0xffffffff remove the bit which is big than high/small than low. 
+                                                                                       // do "AND" to each other, that is the range we want to know.
+}                                                                                      // do "AND" with input, when the value > 0, it means there is 1 inside.
