@@ -17,14 +17,19 @@ int main(void){
         printf("    Please specify the high: ");
         scanf("%d", &high);
         if (high > 31 || high < 0){
-            printf("    High need to 0 <= high <= 31");
+            printf("    High need to 0 <= high <= 31\n\ns");
             continue;
         }
 
         printf("    Please specify the low: ");
         scanf("%d", &low);
         if (low > 31 || low < 0){
-            printf("    Low need to 0 <= low <= 31");
+            printf("    Low need to 0 <= low <= 31\n\n");
+            continue;
+        }
+
+        if (low > high){
+            printf("    Low need to smaller than high :)\n\n");
             continue;
         }
 
@@ -42,10 +47,10 @@ int main(void){
 int CheckRangeLoop(Int32 input, Int32 high, Int32 low){
     Int32 left_shift = 0xffffffff, right_shift = 0xffffffff; 
     for (int i = 0; i < 31 - high; i++){
-        left_shift = left_shift >> 1;
+        right_shift = right_shift >> 1;
     }
     for (int i = 0; i < low; i++){
-        right_shift = right_shift >> 1;
+        left_shift = left_shift << 1;
     }
 
     return ((left_shift & right_shift & input) > 0) ? 1 : 0;
