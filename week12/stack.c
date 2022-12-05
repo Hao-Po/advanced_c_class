@@ -14,7 +14,7 @@ void handle_push_operation(tStack *stack_ptr)
 {
     int score;
 
-    if (stack_ptr->count == 5){
+    if (stack_ptr->count == N){
         printf ("[Error]  handle_push_operation(): space full \n\n");
     }
     else{
