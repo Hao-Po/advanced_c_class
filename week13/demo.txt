@@ -1,0 +1,218 @@
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+1
+  enter id:1
+      byte_small_buf_mask: 0 0 0 0 0 0 0 1
+      type small queue: 1
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+2
+  enter id: 11
+      byte_small_buf_mask: 0 0 0 0 0 1 1 1
+      type small queue: 1 11
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+2
+  enter id: 12
+      byte_small_buf_mask: 0 0 0 1 1 1 1 1
+      type small queue: 1 11 12
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+1
+  enter id:2
+      byte_small_buf_mask: 0 0 1 1 1 1 1 1
+      type small queue: 1 11 12 2
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+1
+  enter id:3
+      byte_small_buf_mask: 0 1 1 1 1 1 1 1
+      type small queue: 1 11 12 2 3
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+2
+  enter id: 13
+    Enqueue False!!!
+    Cannot enter to the queue
+      byte_small_buf_mask: 0 1 1 1 1 1 1 1
+      type small queue: 1 11 12 2 3
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+4
+enter an ID to remove
+11
+      byte_small_buf_mask: 0 1 1 1 1 0 0 1
+      type small queue: 1 12 2 3
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+1
+  enter id:4
+      byte_small_buf_mask: 0 1 1 1 1 0 1 1
+      type small queue: 1 12 2 3 4
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+2
+  enter id: 13
+    Enqueue False!!!
+    Cannot enter to the queue
+      byte_small_buf_mask: 0 1 1 1 1 0 1 1
+      type small queue: 1 12 2 3 4
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+3
+  enter an ID to remove
+1
+      byte_small_buf_mask: 0 1 1 1 1 0 1 0
+      type small queue: 12 2 3 4
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+3
+  enter an ID to remove
+2
+      byte_small_buf_mask: 0 1 0 1 1 0 1 0
+      type small queue: 12 3 4
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+3
+  enter an ID to remove
+3
+      byte_small_buf_mask: 0 0 0 1 1 0 1 0
+      type small queue: 12 4
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+2
+  enter id: 13
+      byte_small_buf_mask: 0 1 1 1 1 0 1 0
+      type small queue: 12 4 13
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+3
+  enter an ID to remove
+4
+      byte_small_buf_mask: 0 1 1 1 1 0 0 0
+      type small queue: 12 13
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+2
+  enter id: 14
+      byte_small_buf_mask: 0 1 1 1 1 0 1 1
+      type small queue: 12 13 14
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+3
+  enter an ID to remove
+12
+    cannot find the target node
+      byte_small_buf_mask: 0 1 1 1 1 0 1 1
+      type small queue: 12 13 14
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+4
+enter an ID to remove
+12
+      byte_small_buf_mask: 0 1 1 0 0 0 1 1
+      type small queue: 13 14
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+1
+  enter id:13
+      byte_small_buf_mask: 0 1 1 0 0 1 1 1
+      type small queue: 13 14 13
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+1
+  enter id:13
+      byte_small_buf_mask: 0 1 1 0 1 1 1 1
+      type small queue: 13 14 13 13
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
+3
+  enter an ID to remove
+13
+      byte_small_buf_mask: 0 1 1 0 1 0 1 1
+      type small queue: 13 14 13
+
+Which type you are going to operate?
+1. Add a type 1 (small) item
+2. Add a type 2 (big) item
+3. remove a type 1 item with a specific Id
+4. remove a type 2 item with a specific Id
