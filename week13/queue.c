@@ -21,10 +21,10 @@ int enqueue_type_small(tQueue *queue, int id, int score, int data_type)
     int mem_location;
 
     if (data_type - 1 == TYPE_SMALL){
-        our_malloc(TYPE_SMALL, &newptr, &mem_location);
+        our_malloc(TYPE_SMALL, (void *) &newptr, &mem_location);
     }
     else{
-        our_malloc(TYPE_LARGE, &newptr, &mem_location);
+        our_malloc(TYPE_LARGE, (void *) &newptr, &mem_location);
     }
 
     if (newptr == NULL){

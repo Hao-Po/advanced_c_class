@@ -9,5 +9,5 @@ $(EXE): $(OBJ)
 	$(CC) -o $@ $(OBJ)
 
 clean:
-	del -rf $(EXE) *.o *.d *.exe core
+	del *.o *.d *.exe core
 
