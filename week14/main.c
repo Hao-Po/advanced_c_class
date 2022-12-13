@@ -21,8 +21,7 @@ int main (void)
         printf("Chioce: ");
         scanf("%d", &operation);
         
-        if (operation == 1 || operation == 2)
-        {
+        if (operation == 1 || operation == 2){
             printf("  Enter an ID: ");
             scanf("%d", &id);
 
@@ -34,15 +33,13 @@ int main (void)
             }
             print_buffer_status();
         }
-        else if (operation == 3 || operation == 4)
-        {
+        else if (operation == 3 || operation == 4){
             printf ("  Enter an ID to remove: ");
             scanf("%d", &id);
             target_node = NULL;
             target_node = find_target_node(queue, id, (operation == 3) ? 0 : 1);
 
-            if (target_node == NULL)
-            {
+            if (target_node == NULL){
                 printf ("    Cannot find the target node! \n");
             }
             else{
@@ -50,8 +47,7 @@ int main (void)
             }
             print_buffer_status();
         }
-        else
-        {
+        else{
             printf ("    No such operation! \n");   
         }
         print_queue(queue);

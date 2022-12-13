@@ -37,6 +37,7 @@ int tqueue_enqueue(tQueue *queue, int id, int score, int data_type){
         ((tQueueLarge *)newptr)->location = mem_location;
         ((tQueueLarge *)newptr)->score[0] = score;
     }
+    
     queue_node->content = newptr;
     queue_node->data_type = data_type;
     queue_node->prev = NULL;
@@ -57,51 +58,35 @@ int tqueue_enqueue(tQueue *queue, int id, int score, int data_type){
 }
 
 int tqueue_dequeue(tQueue *queue, tQueueNode *target, int data_type){
+    if (data_type == TYPE_SMALL){
+        printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueSmall *)target->content)->location, ((tQueueSmall *)target->content)->id);
+        if (target->next != NULL){
+            printf("target next type: %d, location: %d, id: %d\n", target->next->data_type, ((tQueueSmall *)target->next->content)->location, ((tQueueSmall *)target->next->content)->id);
+        }
+    }
+    else{
+        printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueLarge *)target->content)->location, ((tQueueLarge *)target->content)->id);
+        if (target->next != NULL){
+            printf("target next type: %d, location: %d, id: %d\n", target->next->data_type, ((tQueueLarge *)target->next->content)->location, ((tQueueLarge *)target->next->content)->id);
+        }
+    }
 
     if (queue->count == 1){
-        if (data_type == TYPE_SMALL){
-            printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueSmall *)target->content)->location, ((tQueueSmall *)target->content)->id);
-        }
-        else{
-            printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueLarge *)target->content)->location, ((tQueueLarge *)target->content)->id);
-        }
         queue->front = NULL;
         queue->rear = NULL;
     }
     else{
         if (target == queue->front){
-            if (data_type == TYPE_SMALL){
-                printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueSmall *)target->content)->location, ((tQueueSmall *)target->content)->id);
-                printf("target next type: %d, location: %d, id: %d\n", target->next->data_type, ((tQueueSmall *)target->next->content)->location, ((tQueueSmall *)target->next->content)->id);
-            }
-            else{
-                printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueLarge *)target->content)->location, ((tQueueLarge *)target->content)->id);
-                printf("target next type: %d, location: %d, id: %d\n", target->next->data_type, ((tQueueLarge *)target->next->content)->location, ((tQueueLarge *)target->next->content)->id);
-            }
             queue->front = target->next;
             queue->front->prev = NULL;
         }
         else if (target == queue->rear){
-            if (data_type == TYPE_SMALL){
-                printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueSmall *)target->content)->location, ((tQueueSmall *)target->content)->id);
-            }
-            else{
-                printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueLarge *)target->content)->location, ((tQueueLarge *)target->content)->id);
-            }
             queue->rear = target->prev;
             queue->rear->next = NULL;
         }
         else{
             target->prev->next = target->next;
             target->next->prev = target->prev;
-            if (data_type == TYPE_SMALL){
-                printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueSmall *)target->content)->location, ((tQueueSmall *)target->content)->id);
-                printf("target next type: %d, location: %d, id: %d\n", target->next->data_type, ((tQueueSmall *)target->next->content)->location, ((tQueueSmall *)target->next->content)->id);
-            }
-            else{
-                printf("target type: %d, location: %d, id: %d\n", target->data_type, ((tQueueLarge *)target->content)->location, ((tQueueLarge *)target->content)->id);
-                printf("target next type: %d, location: %d, id: %d\n", target->next->data_type, ((tQueueLarge *)target->next->content)->location, ((tQueueLarge *)target->next->content)->id);
-            }
         }
     }
 
@@ -111,6 +96,7 @@ int tqueue_dequeue(tQueue *queue, tQueueNode *target, int data_type){
     else{
         our_free(data_type, ((tQueueLarge *)target->content)->location);
     }
+
     queue->count--;
     return 1;   
 }

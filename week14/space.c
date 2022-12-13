@@ -43,7 +43,7 @@ void our_malloc(int data_type, void **target, int *mem_location)
         else{
             location = test_single_location(byte_large_buf_mask, 0x01);
             set_single_bit(&byte_large_buf_mask, location);
-            *target = &buffer[SMALL_ELEMENT_SIZE * (NUM_SMALL_BYTE_BUF - 1) + LARGE_ELEMENT_SIZE * location];
+            *target = &buffer[SMALL_ELEMENT_SIZE * NUM_SMALL_BYTE_BUF + LARGE_ELEMENT_SIZE * location];
             *mem_location = location + 8;
         }
         
@@ -52,7 +52,7 @@ void our_malloc(int data_type, void **target, int *mem_location)
         location = test_single_location(byte_large_buf_mask, 0x01);
         if (location >= 0){
             set_single_bit(&byte_large_buf_mask, location);
-            *target  = &buffer[SMALL_ELEMENT_SIZE * (NUM_SMALL_BYTE_BUF - 1) + LARGE_ELEMENT_SIZE * location];
+            *target  = &buffer[SMALL_ELEMENT_SIZE * NUM_SMALL_BYTE_BUF + LARGE_ELEMENT_SIZE * location];
             *mem_location = location + 8;
         }
         else{
