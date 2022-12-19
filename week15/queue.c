@@ -14,14 +14,14 @@ tQueue *createQueue(void){
     return queue;
 }
 
-int enqueue_data(tQueue *queue, int id, int score, int data_type){
+int enqueue_data(tQueue *queue, int id, int score, int data_type, int *space){
     tQueueNode *queue_node = NULL;
     int mem_location;
 
     our_malloc (data_type, (void *) &queue_node, &mem_location);
 
     if (queue_node == NULL){
-        printf("    Enqueue Failed !!! \n\n");
+        printf("    Enqueue Failed !!! \n");
         return 0;
     }
     
@@ -42,30 +42,33 @@ int enqueue_data(tQueue *queue, int id, int score, int data_type){
         queue->rear = queue_node;
     }
     
+    *space = *space - data_type;
     queue->count++;
     return 1;
 }
 
-int dequeue_data(tQueue *queue, tQueueNode *target, int data_type){
+int dequeue_data(tQueue *queue, tQueueNode *target, int *space){
     if (queue->count == 1){
         queue->front = NULL;
         queue->rear = NULL;
     }
-    // else{
-    //     if (target == queue->front){
-    //         queue->front = target->next;
-    //         queue->front->prev = NULL;
-    //     }
-    //     else if (target == queue->rear){
-    //         queue->rear = target->prev;
-    //         queue->rear->next = NULL;
-    //     }
-    //     else{
-    //         target->prev->next = target->next;
-    //         target->next->prev = target->prev;
-    //     }
-    // }
+    else{
+        if (target == queue->front){
+            queue->front = target->next;
+            queue->front->prev = NULL;
+        }
+        else if (target == queue->rear){
+            queue->rear = target->prev;
+            queue->rear->next = NULL;
+        }
+        else{
+            target->prev->next = target->next;
+            target->next->prev = target->prev;
+        }
+    }
 
+    our_free(target->location, target->data_type);
+    *space = *space + target->data_type;
     queue->count--;
     return 1;   
 }
@@ -77,7 +80,6 @@ tQueueNode *find_target_node(tQueue *queue, int id){
         if (target->id == id){
             return target;
         }
-
         target = target->next;
     }
 
@@ -93,5 +95,5 @@ void print_queue (tQueue *queue)
         printf ("%d(%d, %d) ", target->id, target->location, target->data_type);
         target = target->next;
     }
-    printf("\n");
+    printf("\n\n");
 }

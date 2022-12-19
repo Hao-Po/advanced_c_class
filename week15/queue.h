@@ -6,8 +6,8 @@ typedef struct queue_node {
     int score;
     int location;
     int data_type;
-    struct tQueueNode *next;
-    struct tQueueNode *prev;    
+    struct queue_node *next;
+    struct queue_node *prev;    
 }tQueueNode;
 
 typedef struct {
@@ -17,8 +17,8 @@ typedef struct {
 }tQueue;
 
 tQueue *createQueue(void);
-int enqueue_data(tQueue *queue, int id, int score, int data_type);
-int dequeue_data(tQueue *queue, tQueueNode *target, int data_type);
+int enqueue_data(tQueue *queue, int id, int score, int data_type, int *space);
+int dequeue_data(tQueue *queue, tQueueNode *target, int *space);
 tQueueNode *find_target_node(tQueue *queue, int id);
 void print_queue(tQueue *queue);
 

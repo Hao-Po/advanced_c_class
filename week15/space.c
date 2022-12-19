@@ -65,11 +65,11 @@ void set_data(int location, int mask_length){
 }
 
 void clear_data(int location, int mask_length){
-    // *mask = *mask ^ (0x01 << location);
+    for (int count = 0; count < mask_length; count++){
+        buffer_mask[location++] = 0;
+    }
 }
 
-void our_free(int data_type, int mem_location){
-    // if (data_type == TYPE_SMALL){
-    //     clear_bit(&buffer_mask, mem_location);
-    // }
+void our_free(int location, int data_type){
+    clear_data(location, data_type);
 }

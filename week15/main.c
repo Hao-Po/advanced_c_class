@@ -6,7 +6,7 @@ int main (void)
 {
     tQueue *queue;
     tQueueNode *target_node;
-    int operation, id, score=0, space, ret, data_type;
+    int operation, id, score=0, space = NUM_BTYE_BUF, ret, data_type;
     queue = createQueue();
 
     while (1)
@@ -26,10 +26,9 @@ int main (void)
             printf("  Specify data type(units) you want: ");
             scanf("%d", &data_type);
 
-            ret = enqueue_data(queue, id, score, data_type);
+            ret = enqueue_data(queue, id, score, data_type, &space);
 
-            if (ret == 0)
-            {
+            if (ret == 0){
                 printf("    Cannot enter to the queue!\n");
             }
             print_buffer_status();
@@ -44,7 +43,7 @@ int main (void)
                 printf ("    Cannot find the target node! \n");
             }
             else{
-                dequeue_data(queue, target_node, data_type);
+                dequeue_data(queue, target_node, &space);
             }
             print_buffer_status();
         }
