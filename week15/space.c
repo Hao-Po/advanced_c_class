@@ -36,7 +36,7 @@ void our_malloc(int data_type, void **target, int *mem_location)
     }
 }
 
-int test_location(int mask_length){ // bug is here
+int test_location(int mask_length){
     int count = 0, start = -1;
     for (int location = 0; location < NUM_BTYE_BUF; location++){
         if (buffer_mask[location] == 0 && start == -1){
