@@ -5,12 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX 4
+#define MAX 6
 
 typedef char my_int[MAX];
 
-void my_add(char input_1, char inupt_2);
-void my_number_print(char *input);
-void trans_from_string(char *user_input);
+void my_add(my_int *sum, my_int *num_one, my_int *num_two);
+void my_number_print(my_int *input);
+void trans_from_string(my_int *num, char *user_input);
 
 #endif
