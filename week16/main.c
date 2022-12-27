@@ -40,9 +40,9 @@ void my_add(my_int *sum, my_int *num_one, my_int *num_two)
     int carry = 0;
     for (int index = MAX - 1; index > -1; index--)
     {
-        if ((*num_one)[index] + (*num_two)[index] + carry - '0' > 57)
+        if ((*num_one)[index] + (*num_two)[index] + carry - '0' > '9')
         {
-            (*sum)[index] = ((*num_one)[index] + (*num_two)[index] + carry - 2 * '0') % 10 + '0';
+            (*sum)[index] = (*num_one)[index] + (*num_two)[index] + carry - '0' - 10;
             carry = 1;
         }
         else
